@@ -90,9 +90,49 @@
                     <h2 style="color: white; font-size: 22px;font-weight: bold; font-family: cursive;text-decoration: underline;">Senaste artiklarna</h2>
                     <p style="color: white; font-size: 19px; font-family: cursive;">Inga artiklar tillgängliga för tillfället.</p>
                 </aside>
+                <div id="commentsSection">
+                    <!-- Comments will be dynamically added here -->
+                </div>
+
+                <form id="commentForm">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">Comment:</label>
+                        <textarea id="comment" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Comment</button>
+                </form>
+
+                <script>
+                    function submitComment(event) {
+                        event.preventDefault();
+
+                        var nameInput = document.getElementById("name");
+                        var commentInput = document.getElementById("comment");
+                        var name = nameInput.value;
+                        var comment = commentInput.value;
+
+                        var commentElement = document.createElement("div");
+                        commentElement.innerHTML = "<strong>" + name + ":</strong> " + comment;
+
+                        var commentsSection = document.getElementById("commentsSection");
+                        commentsSection.appendChild(commentElement);
+
+                        nameInput.value = "";
+                        commentInput.value = "";
+                    }
+
+                    var commentForm = document.getElementById("commentForm");
+                    commentForm.addEventListener("submit", submitComment);
+                </script>
+
             </div>
         </div>
     </div>
+
 
     <footer class="border-top footer text-muted">
         <div class="container">
