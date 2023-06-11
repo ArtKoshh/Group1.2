@@ -46,6 +46,7 @@
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
+                    <!-- Artur Koshmin-->
                     <div>
                        <a onclick="shareOnFacebook()" class="btn btn-default btn-facebook"><i class="fab fa-facebook-f"></i></a>
                        <a onclick="shareOnTwitter()" class="btn btn-default btn-twitter"><i class="fab fa-twitter"></i></a>
@@ -58,7 +59,7 @@
             </div>
         </nav>
     </header>
-
+    <!-- Artur Koshmin-->
     <script>
         function shareOnFacebook() {
             var articleUrl = encodeURIComponent(window.location.href);
@@ -90,8 +91,8 @@
                     <h2 style="color: white; font-size: 22px;font-weight: bold; font-family: cursive;text-decoration: underline;">Senaste artiklarna</h2>
                     <p style="color: white; font-size: 19px; font-family: cursive;">Inga artiklar tillgängliga för tillfället.</p>
                 </aside>
+                <!-- Artur Koshmin-->
                 <div id="commentsSection">
-                    <!-- Comments will be dynamically added here -->
                 </div>
 
                 <form id="commentForm">
@@ -105,7 +106,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Submit Comment</button>
                 </form>
-
+                <!-- Artur Koshmin-->
                 <script>
                     function submitComment(event) {
                         event.preventDefault();
