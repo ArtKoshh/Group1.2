@@ -2,6 +2,12 @@
 
 @{
     ViewBag.Title = "Articles";
+    <!-- Add Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Add Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
 
     Dictionary<string, string> topicDisplayNames = new Dictionary<string, string>
 {
@@ -17,8 +23,6 @@
 
 }
 
-<!-- Kheyria Awes Header styling -->
-<!-- Kheyria Awes Header styling -->
 <!-- Kheyria Awes Header styling -->
 <h1 style="color: white; font-size: 24px; font-weight: bold; font-family: cursive; text-decoration: underline;">Articles</h1>
 
@@ -75,3 +79,53 @@
         }
     </div>
 </div>
+
+
+<body>
+    <style>
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #555555;
+            color: #ffffff;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 24px;
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+            .scroll-to-top.show {
+                opacity: 1;
+            }
+    </style>
+<button onclick="scrollToTop()" class="scroll-to-top" id="scrollToTopButton">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- Add Bootstrap JS (required for the scroll-to-top button) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    window.onscroll = function () { showScrollToTopButton() };
+
+    function showScrollToTopButton() {
+        var scrollToTopButton = document.getElementById("scrollToTopButton");
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollToTopButton.classList.add("show");
+        } else {
+            scrollToTopButton.classList.remove("show");
+        }
+    }
+</script>
+</body>
+</>

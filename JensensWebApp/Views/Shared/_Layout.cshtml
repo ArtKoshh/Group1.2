@@ -11,7 +11,12 @@
 <!-- Tanya Svetanovska Background Colouring -->
 <body style="background-color: #343a40;">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-black border-bottom box-shadow mb-3">
+        <head>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+        </head>
+
+
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-red bg-black border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
                     <span class="logo-decoration">Daily News</span>
@@ -25,7 +30,7 @@
                         font-weight: bold;
                         font-family: cursive;
                         /* Add any additional styles as needed */
-                    }
+
                 </style>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -41,10 +46,36 @@
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
+                    <div>
+                       <a onclick="shareOnFacebook()" class="btn btn-default btn-facebook"><i class="fab fa-facebook-f"></i></a>
+                       <a onclick="shareOnTwitter()" class="btn btn-default btn-twitter"><i class="fab fa-twitter"></i></a>
+                       <button onclick="printPage()" class="btn btn-default btn-print"><i class="fas fa-print text-primary"></i></button>
+                    </div>
+
+
+
                 </div>
             </div>
         </nav>
     </header>
+
+    <script>
+        function shareOnFacebook() {
+            var articleUrl = encodeURIComponent(window.location.href);
+            window.open('https://www.facebook.com/sharer/sharer.php?u=' + articleUrl, '_blank');
+        }
+
+        function shareOnTwitter() {
+            var articleUrl = encodeURIComponent(window.location.href);
+            var articleTitle = encodeURIComponent(document.title);
+            window.open('https://twitter.com/intent/tweet?url=' + articleUrl + '&text=' + articleTitle, '_blank');
+        }
+
+        function printPage() {
+            window.print();
+        }
+    </script>
+
     <!-- El Habib Asmama Section for lastest articles -->
     <div class="container">
         <div class="row">
