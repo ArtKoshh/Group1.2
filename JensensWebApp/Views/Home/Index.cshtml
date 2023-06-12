@@ -24,15 +24,15 @@
 }
 
 <!-- Kheyria Awes Header styling -->
-<h1 style="color: white; font-size: 24px; font-weight: bold; font-family: cursive; text-decoration: underline;">Articles</h1>
+<h1 style="color: red; font-size: 24px; font-weight: bold; font-family:'Times New Roman', Times, serif; text-decoration: underline;">Articles</h1>
 
 
 <div class="container">
     @using (Html.BeginForm("Index", "Home", FormMethod.Get))
     {
 
-        <!-- Tanya Svetanovska Text Colouring -->
-        <label for="topic" style="color: #ffffff; font-weight: bold; font-family: cursive;">Select a topic:</label>
+        <!-- Tanya Cvetanovska Text Colouring -->
+        <label for="topic" style="color: black; font-weight:bold; font-family:'Times New Roman', Times, serif;">Select a topic:</label>
         <select id="topic" name="topic" class="form-select">
             <option value="">All</option>
             @foreach (var topic in topicDisplayNames)
@@ -41,22 +41,23 @@
             }
         </select>
 
-        <label for="sortBy" style="color: #ffffff; font-weight: bold;font-family: cursive;">Sort by:</label>
+        <label for="sortBy" style="color: black; font-weight: bold;font-family:'Times New Roman', Times, serif;">Sort by:</label>
         <select id="sortBy" name="sortBy" class="form-select">
             <option value="">Default</option>
             <option value="newest">Newest to Oldest</option>
             <option value="oldest">Oldest to Newest</option>
         </select>
 //------Artur Koshmin , Filter Knappen------
-  <style>
-    .btn-multiple {
-      background: linear-gradient(to right, red,Blue,indigo,violet,Black);
-      color: gold;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-     
- 
-    }
-  </style>
+        <style>
+            .btn-multiple {
+                background: white;
+                color: red;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                padding-left: 10px;
+                margin-top: 10px;
+            }
+        </style>
 
         <button type="submit" class="btn btn-outline-dark primary btn-outline-dark btn-multiple">Filter</button>
 
@@ -68,6 +69,7 @@
         {
             <div class="col-md-6 col-lg-4 mb-4">
                 <div class="card">
+                    <img src="Images/image1.jpg" class="card-img-top" alt=""> <!-- Tanya Cvetanovska Images -->
                     <div class="card-body">
                         <h5 class="card-title">@article.Title</h5>
                         <p class="card-text">@article.Summary</p>
