@@ -215,6 +215,22 @@ namespace JensensWebApp.Controllers
             var articles = _articles.Where(a => a.Topic.Contains("Ekonomi")).ToList();
             return View(articles);
         }
+        public IActionResult Idrott()
+        {
+            var articles = _articles.Where(a => a.Topic.Contains("Idrott")).ToList();
+            return View(articles);
+        }
 
+        public IActionResult Politik()
+        {
+            var articles = _articles.Where(a => a.Topic.Contains("Politik")).ToList();
+            return View(articles);
+        }
+
+        public IActionResult Halsa()
+        {
+            var articles = _articles.Where(a => a.Topic.Contains("Halsa")).ToList();
+            return View(articles);
+        }
     }
 }

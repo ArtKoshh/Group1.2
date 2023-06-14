@@ -1,0 +1,54 @@
+﻿@model List<Article>
+
+@foreach (var article in Model)
+{
+    <div class="article">
+        <h2>@article.Title</h2>
+        <p>@article.Summary</p>
+        <a href="${article.link}" target="_blank">Läs mer</a>
+    </div>
+}
+
+<script>
+    // JavaScript to style the articles
+    const articles = document.querySelectorAll('.article');
+    articles.forEach((article, index) => {
+        // Apply different background color to alternate articles
+        if (index % 2 === 0) {
+            article.classList.add('even');
+        } else {
+            article.classList.add('odd');
+        }
+    });
+</script>
+
+<style>
+    /* CSS styles for article container */
+    .article {
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+        .article h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .article p {
+            font-size: 16px;
+            margin-bottom: 0;
+        }
+
+        /* CSS styles for alternate articles */
+        .article.even {
+            background-color: #f5f5f5;
+        }
+
+        .article.odd {
+            background-color: #ffffff;
+        }
+</style>
+
