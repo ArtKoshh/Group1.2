@@ -82,6 +82,51 @@
     </div>
 </div>
 
+<!-- El Habib : JavaScript code to populate the latestArticles element with the three last added articles -->
+@section Scripts {
+    <script>    // Function to fetch the latest articles
+        function fetchLatestArticles() {
+            fetch('/Home/LatestArticles')
+                .then(response => response.json())
+                .then(articles => {
+
+                    const latestArticlesElement = document.getElementById('latestArticles');
+
+
+                    latestArticlesElement.innerHTML = '';
+
+
+                    if (articles.length === 0) {
+                        latestArticlesElement.innerHTML = '<p style="color: black; font-size: 19px; font-family: cursive;">Inga artiklar tillgängliga för tillfället.</p>';
+                        return;
+                    }
+
+
+                    for (let i = 0; i < Math.min(articles.length, 5); i++) {
+                        const article = articles[i];
+
+
+                        const articleElement = document.createElement('div');
+                        articleElement.innerHTML = `
+                                                <h3>${article.title}</h3>
+                                                <!--${article.summary}-->
+                                                <p></p>
+                                                <a href="${article.link}" target="_blank">Läs mer</a>
+                                                <hr>
+                                            `;
+
+                        latestArticlesElement.appendChild(articleElement);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching latest articles:', error);
+                });
+        }
+
+        // Call the fetchLatestArticles function when the page loads
+        window.addEventListener('load', fetchLatestArticles);</script>
+
+}
 
 <!-- Artur Koshmin-->
 <body>

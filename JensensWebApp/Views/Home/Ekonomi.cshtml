@@ -1,0 +1,10 @@
+﻿@model List<Article>
+
+<h1>Ekonomi</h1>
+
+@foreach (var article in Model)
+{
+        <h2>@article.Title</h2>
+        <p>@article.Summary</p>
+
+}

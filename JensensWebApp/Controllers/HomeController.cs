@@ -201,5 +201,19 @@ namespace JensensWebApp.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        //El Habib : Method to retrieve the latest articles
+        public IActionResult LatestArticles()
+        {
+            var latestArticles = _articles.OrderByDescending(a => a.Published).Take(3);
+            return Json(latestArticles);
+        }
+        //Sarahh
+        public IActionResult Ekonomi()
+        {
+            var articles = _articles;
+
+            return View(articles);
+        }
     }
 }
