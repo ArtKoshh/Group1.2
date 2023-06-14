@@ -208,12 +208,13 @@ namespace JensensWebApp.Controllers
             var latestArticles = _articles.OrderByDescending(a => a.Published).Take(3);
             return Json(latestArticles);
         }
+
         //Sarahh
         public IActionResult Ekonomi()
         {
-            var articles = _articles;
-
+            var articles = _articles.Where(a => a.Topic.Contains("Ekonomi")).ToList();
             return View(articles);
         }
+
     }
 }
